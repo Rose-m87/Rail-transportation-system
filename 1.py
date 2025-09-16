@@ -21,9 +21,17 @@ class train_employee:
         pass
 class empoloyee_panel:
     def __init__(self):
-        pass
-    def add_line(self,lines_name,origin,destanition):
-        pass
+        self.lines_listt=[]
+    def add_line(self,lines_name,origin,destination,stations):
+        if lines_name=="":
+            return
+        if origin=="":
+            return
+        if destination=="":
+            return
+        if not stations:
+            return
+        
     def update_lines_info(self,lines_name):
         pass
     def delet_line(self,lines_name):
