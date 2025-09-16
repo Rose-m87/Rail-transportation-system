@@ -31,7 +31,15 @@ class empoloyee_panel:
             return
         if not stations:
             return
-        
+        for line in self.lines_listt:
+            if line[0]==lines_name:
+                print("This name exists, enter another name")
+                return
+        line_record=[lines_name,origin,destination,stations]
+        self.lines_listt.append(line_record)
+        print(f"line'{lines_name}'added successfully")
+            
+
     def update_lines_info(self,lines_name):
         pass
     def delet_line(self,lines_name):
