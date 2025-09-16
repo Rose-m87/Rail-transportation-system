@@ -22,6 +22,7 @@ class train_employee:
 class empoloyee_panel:
     def __init__(self):
         self.lines_listt=[]
+
     def add_line(self,lines_name,origin,destination,stations):
         if lines_name=="":
             return
@@ -38,8 +39,16 @@ class empoloyee_panel:
         line_record=[lines_name,origin,destination,stations]
         self.lines_listt.append(line_record)
         print(f"line'{lines_name}'added successfully")
-            
-
+panel=empoloyee_panel()
+while True:
+    lines_name=input("inter line name :")
+    origin=input("enter origin: ")
+    destination=input("enter destination: ")
+    stations=input("enter stations separated by cammas: ").split(",")
+    panel.add_line(lines_name,origin,destination,stations)
+    continue_=input("do you want to add another line?")
+    if continue_.lower()!="yes":
+        break
     def update_lines_info(self,lines_name):
         pass
     def delet_line(self,lines_name):
