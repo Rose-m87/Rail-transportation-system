@@ -66,67 +66,49 @@ class TrainEmployeePanel:
                 print("Wrong choice, try again.")
                 return
     def add_line(self):
-        print("---Add line section---")
-        print("--To return to the panel, press 0.--")
-        print("-Press 1 to continue.-")
-        login_sec = input()
-        for choice in login_sec:
-            if login_sec != "0" or login_sec != "1":
-                return
-            if login_sec == "0":
-                return TrainEmployeePanel()
-            elif login_sec == "1":
-                continue
+        print("\n---Add line section---")
 
-        lines_name=input("Enter line name :")
+        line_name=input("Enter line name (or 0 to go panel): ")
+        if line_name
         origin=input("Enter origin: ")
         destination=input("Enter destination: ")
         stations=input("Enter stations separated by cammas: ").split(",")
         #exit add line = 0        
-        if lines_name=="":
+        if not line_name or not origin or not destination or not stations:
+            print("Invalid input")
             return
-        if origin=="":
-            return
-        if destination=="":
-            return
-        if not stations:
-            return
+        
         for line in self.lines_list:
-            if line[0]==lines_name:
+            if line[0]==line_name:
                 print("This name exists, enter another name")
                 return
 
-        line_record=[lines_name,origin,destination,stations]
+        line_record=[line_name,origin,destination,stations]
         self.lines_list.append(line_record)
-        print(f"line'{lines_name}'added successfully")
-        return TrainEmployeePanel()
+        print(f"line'{line_name}'added successfully")
+    
 
         #حذف خط
 
     def delete_line(self):
-        print("---Delete line section---")
-        print("-For back to panel: Enter 0")
-        delete_line_name = input("Enter line name: ")
-        if delete_line_name=="":
+        print("\n---Delete line section---")
+        delete_line_name = input("Enter line name to delete (or 0 to go panel): ")
+        if delete_line_name == "0":
             return
-        elif delete_line_name == "0":
-            return TrainEmployeePanel()
+        
         for line in self.lines_list:
-            if line[0]==delete_line_name:
-                print("--Your chosen line is available.--")
-                continue
-            else:
-                print("--The line you selected does not exist.--")
-        if delete_line_name in self.lines_list:
-            self.lines_list.remove(delete_line_name)
-            print("--Your selected line has been deleted.--")
-            return TrainEmployeePanel()
-        elif delete_line_name == "0":
-            return TrainEmployeePanel()
+            if line[0] == delete_line_name:
+            self.lines_list.remove(line)
+            print(f"Line '{delete_line_name}' deleted successfully!")
+            return
+        print("Line not found")
         
         # مشاهده لیست خطوط
 
     def view_line_list(self):
-        for item in self.lines_list:
-            print(item)
-        return TrainEmployeePanel()
+        print("\n--- Lines List ---")
+        if not self.lines_list:
+            print("No Lines available.")
+            return
+        for line in self.lines_list:
+            print(line)
