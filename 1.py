@@ -22,15 +22,20 @@ class train_employee:
 class empoloyee_panel:
     def __init__(self):
         self.lines_listt=[]
+        self.lines_dict={}
 
     def add_line(self,lines_name,origin,destination,stations):
         if lines_name=="":
+            print("lines_name is empty")
             return
         if origin=="":
+            print("origin is empty")
             return
         if destination=="":
+            print("destination is empty")
             return
         if not stations:
+            print("stations list is empty")
             return
         for line in self.lines_listt:
             if line[0]==lines_name:
@@ -38,7 +43,7 @@ class empoloyee_panel:
                 return
         line_record=[lines_name,origin,destination,stations]
         self.lines_listt.append(line_record)
-        print(f"line'{lines_name}'added successfully")
+        print(f"line '{lines_name}' added successfully")
 panel=empoloyee_panel()
 while True:
     lines_name=input("inter line name :")
@@ -49,8 +54,26 @@ while True:
     continue_=input("do you want to add another line?")
     if continue_.lower()!="yes":
         break
+    def all_info (self):
+        for i in range(len(self.lines_listt)):
+            for line in self.lines_listt:
+                key_=line[0]
+                self.lines_dict[key_]=self.lines_listt[i]
     def update_lines_info(self,lines_name):
+        if lines_name=="":
+            return
+while True:
+    lines_name=input("enter line name: ")
+    for key in self.lines_dict:
+        if key==lines_name:
+            name_list=self.lines_dict[key]
+            joined_name="\t".join(name_list)
+            pass
+        break
+    choice=(f"Which one do you want to update? : {joined_name}")
+    if choice==lines_name:
         pass
+
     def delet_line(self,lines_name):
         pass
     def lines_list(self):
