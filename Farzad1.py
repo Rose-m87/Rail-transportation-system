@@ -11,22 +11,20 @@ class Train_employee:
             password = input("Please enter your password: ")
 
             if username == "Farzad" and password == "1234": #Admin user and pass
-                self.Train_employee_panel()
+                self.panel = TrainEmployeePanel()
+                self.panel.show_menu()
                 break
             #elif برای بازگشت به پنل شروع
             else:
                 print("Wrong username or password. Try again.")
 
-    class Train_employee_panel:
-        def __init__(self,add_line,update_line,delete_line,show_lines_list,add_train,delete_train,show_trains_list,):
-            self.add_line = add_line
-            self.update_line = update_line
-            self.delete_line = delete_line
-            self.show_lines_list = show_lines_list
-            self.add_train = add_train
-            self.delete_train = delete_train
-            self.show_trains_list = show_trains_list
-           
+class TrainEmployeePanel:
+    def __init__(self):
+        self.lines_list = []
+        self.trains_list = []
+    
+    def show_menu(self):
+        while True:
             print("Welcome! Your in Train employee panel")
             print("-------------")
             print(
@@ -38,38 +36,56 @@ class Train_employee:
             "5- Add Train"
             "6- Delete Train"
             "7- Show trains list"
-            "8- Exit"
-            )
+            "8- Exit")
             print("-------------------")
-            
-            while True:
-                choice = input("Please enter your option: ")
-                if choice == "1":
-                    self.add_line()
-                    break
-                elif choice == "2":
-                    self.Update_line()
-                    break
-                elif choice == "3":
-                    self.delete_line()
-                    break
-                elif choice == "4":
-                    self.show_lines_list()
-                    break
-                elif choice == "5":
-                    self.add_train()
-                    break
-                elif choice == "6":
-                    self.delete_train()
-                    break
-                elif choice == "7":
-                    self.show_trains_list()
-                    break
-                #elif choice == "8":
-                    #return #پنل شروع
-                else:
-                    print("Wrong choice, try again.")
-                    return
+                    
+            choice = input("Please enter your option: ")
+            if choice == "1":
+                self.add_line()
+            elif choice == "2":
+                self.update_line()
+                break
+            elif choice == "3":
+                self.delete_line()
+                break
+            elif choice == "4":
+                self.show_lines_list()
+                break
+            elif choice == "5":
+                self.add_train()
+                break
+            elif choice == "6":
+                self.delete_train()
+                break
+            elif choice == "7":
+                self.show_trains_list()
+                break
+            #elif choice == "8":
+                #return #پنل شروع
+            else:
+                print("Wrong choice, try again.")
+                return
+    def add_line(self):
+        lines_name=input("inter line name :")
+        origin=input("enter origin: ")
+        destination=input("enter destination: ")
+        stations=input("enter stations separated by cammas: ").split(",")
+                
+        if lines_name=="":
+            return
+        if origin=="":
+            return
+        if destination=="":
+            return
+        if not stations:
+            return
+        for line in self.lines_list:
+            if line[0]==lines_name:
+                print("This name exists, enter another name")
+                return
+
+        line_record=[lines_name,origin,destination,stations]
+        self.lines_list.append(line_record)
+        print(f"line'{lines_name}'added successfully")
         
-        class Update_line:
-            def __init__(self,):
+Train_employee("", "")
