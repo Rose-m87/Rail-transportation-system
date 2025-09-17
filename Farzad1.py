@@ -70,12 +70,13 @@ class TrainEmployeePanel:
         print("--To return to the panel, press 0.--")
         print("-Press 1 to continue.-")
         login_sec = input()
-        if login_sec != "0" or login_sec != "1":
-            return
-        if login_sec == "0":
-            return TrainEmployeePanel()
-        elif login_sec == "1":
-            continue
+        for choice in login_sec:
+            if login_sec != "0" or login_sec != "1":
+                return
+            if login_sec == "0":
+                return TrainEmployeePanel()
+            elif login_sec == "1":
+                continue
 
         lines_name=input("Enter line name :")
         origin=input("Enter origin: ")
