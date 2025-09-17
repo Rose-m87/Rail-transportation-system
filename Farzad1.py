@@ -44,27 +44,21 @@ class TrainEmployeePanel:
                 self.add_line()
             elif choice == "2":
                 self.update_line()
-                break
             elif choice == "3":
                 self.delete_line()
-                break
             elif choice == "4":
                 self.view_line_list()
-                break
             elif choice == "5":
                 self.add_train()
-                break
             elif choice == "6":
                 self.delete_train()
-                break
             elif choice == "7":
                 self.show_trains_list()
-                break
             #elif choice == "8":
                 #return #پنل شروع
             else:
                 print("Wrong choice, try again.")
-                return
+                continue
     def add_line(self):
         print("\n---Add line section---")
 
@@ -99,9 +93,9 @@ class TrainEmployeePanel:
         
         for line in self.lines_list:
             if line[0] == delete_line_name:
-            self.lines_list.remove(line)
-            print(f"Line '{delete_line_name}' deleted successfully!")
-            return
+                self.lines_list.remove(line)
+                print(f"Line '{delete_line_name}' deleted successfully!")
+                return
         print("Line not found")
         
         # مشاهده لیست خطوط
