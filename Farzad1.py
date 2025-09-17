@@ -25,17 +25,17 @@ class TrainEmployeePanel:
     
     def show_menu(self):
         while True:
-            print("Welcome! Your in Train employee panel")
+            print("\nWelcome! Your in Train employee panel")
             print("-------------")
             print(
-            "Select the option"
-            "1- Add line"
-            "2- Update line"
-            "3- Delete line"
-            "4- Show lines list"
-            "5- Add Train"
-            "6- Delete Train"
-            "7- Show trains list"
+            "\nSelect the option"
+            "1- Add line\n"
+            "2- Update line\n"
+            "3- Delete line\n"
+            "4- View lines list\n"
+            "5- Add Train\n"
+            "6- Delete Train\n"
+            "7- Show trains list\n"
             "8- Exit")
             print("-------------------")
                     
@@ -49,7 +49,7 @@ class TrainEmployeePanel:
                 self.delete_line()
                 break
             elif choice == "4":
-                self.show_lines_list()
+                self.view_line_list()
                 break
             elif choice == "5":
                 self.add_train()
@@ -66,11 +66,22 @@ class TrainEmployeePanel:
                 print("Wrong choice, try again.")
                 return
     def add_line(self):
-        lines_name=input("inter line name :")
-        origin=input("enter origin: ")
-        destination=input("enter destination: ")
-        stations=input("enter stations separated by cammas: ").split(",")
-                
+        print("---Add line section---")
+        print("--To return to the panel, press 0.--")
+        print("-Press 1 to continue.-")
+        login_sec = input()
+        if login_sec != "0" or login_sec != "1":
+            return
+        if login_sec == "0":
+            return TrainEmployeePanel()
+        elif login_sec == "1":
+            continue
+
+        lines_name=input("Enter line name :")
+        origin=input("Enter origin: ")
+        destination=input("Enter destination: ")
+        stations=input("Enter stations separated by cammas: ").split(",")
+        #exit add line = 0        
         if lines_name=="":
             return
         if origin=="":
@@ -87,5 +98,34 @@ class TrainEmployeePanel:
         line_record=[lines_name,origin,destination,stations]
         self.lines_list.append(line_record)
         print(f"line'{lines_name}'added successfully")
+        return TrainEmployeePanel()
+
+        #حذف خط
+
+    def delete_line(self):
+        print("---Delete line section---")
+        print("-For back to panel: Enter 0")
+        delete_line_name = input("Enter line name: ")
+        if delete_line_name=="":
+            return
+        elif delete_line_name == "0":
+            return TrainEmployeePanel()
+        for line in self.lines_list:
+            if line[0]==delete_line_name:
+                print("--Your chosen line is available.--")
+                continue
+            else:
+                print("--The line you selected does not exist.--")
+        if delete_line_name in self.lines_list:
+            self.lines_list.remove(delete_line_name)
+            print("--Your selected line has been deleted.--")
+            return TrainEmployeePanel()
+        elif delete_line_name == "0":
+            return TrainEmployeePanel()
         
-Train_employee("", "")
+        # مشاهده لیست خطوط
+
+    def view_line_list(self):
+        for item in self.lines_list:
+            print(item)
+        return TrainEmployeePanel()
