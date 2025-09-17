@@ -69,7 +69,8 @@ class TrainEmployeePanel:
         print("\n---Add line section---")
 
         line_name=input("Enter line name (or 0 to go panel): ")
-        if line_name
+        if line_name == "0":
+            return
         origin=input("Enter origin: ")
         destination=input("Enter destination: ")
         stations=input("Enter stations separated by cammas: ").split(",")
