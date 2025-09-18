@@ -59,28 +59,6 @@ class TrainEmployeePanel:
             else:
                 print("Wrong choice, try again.")
                 continue
-    def add_line(self):
-        print("\n---Add line section---")
-
-        line_name=input("Enter line name (or 0 to go panel): ")
-        if line_name == "0":
-            return
-        origin=input("Enter origin: ")
-        destination=input("Enter destination: ")
-        stations=input("Enter stations separated by cammas: ").split(",")
-        #exit add line = 0        
-        if not line_name or not origin or not destination or not stations:
-            print("Invalid input")
-            return
-        
-        for line in self.lines_list:
-            if line[0]==line_name:
-                print("This name exists, enter another name")
-                return
-
-        line_record=[line_name,origin,destination,stations]
-        self.lines_list.append(line_record)
-        print(f"line'{line_name}'added successfully")
     
 
         #حذف خط
