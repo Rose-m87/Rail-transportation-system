@@ -6,17 +6,17 @@ class Train_employee:
         print("Hi!")
         print("------")
 
-        while True:
-            username = input("Please enter your username: ")
-            password = input("Please enter your password: ")
+    while True:
+        username = input("Please enter your username: ")
+        password = input("Please enter your password: ")
 
-            if username == "Farzad" and password == "1234": #Admin user and pass
-                self.panel = TrainEmployeePanel()
-                self.panel.show_menu()
-                break
-            #elif برای بازگشت به پنل شروع
-            else:
-                print("Wrong username or password. Try again.")
+        if username == "Farzad" and password == "1234": #Admin user and pass
+            self.panel = TrainEmployeePanel()
+            self.panel.show_menu()
+            break
+        #elif برای بازگشت به پنل شروع
+        else:
+            print("Wrong username or password. Try again.")
 
 class TrainEmployeePanel:
     def __init__(self):
@@ -85,3 +85,28 @@ class TrainEmployeePanel:
             return
         for line in self.lines_list:
             print(line)
+
+            #حذف قطار 
+
+    def delete_train(self):
+        print("\n---Delete Train section---")
+        delete_train_name = input("Enter train name to delete (or 0 to go panel): ")
+        if delete_train_name == "0":
+            return
+        
+        for train in self.trains_list:
+            if train[0] == delete_train_name:
+                self.trains_list.remove(train)
+                print(f"Train '{delete_train_name}' deleted successfully!")
+                return
+        print("Train not found")
+
+        #نمایش لیست قطار
+
+    def show_trains_list(self):
+        print("\n--- Trains List ---")
+        if not self.trains_list:
+            print("No Trains available.")
+            return
+        for Train in self.trains_list:
+            print(f"Train: {train[0]}, Line: {train[1]}")
