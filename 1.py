@@ -20,7 +20,7 @@ class train_employee:
     def authenticate(self, input_username, input_password):
         pass
 class empoloyee_panel:
-    def init(self):
+    def __init__(self):
         self.lines_listt = []
         self.lines_dict = {}
 
@@ -34,6 +34,7 @@ class empoloyee_panel:
         if destination == "":
             print("destination is empty")
             return
+        stations=[s.strip() for s in stations if s.strip()]
         if not stations:
             print("stations list is empty")
             return
@@ -43,6 +44,7 @@ class empoloyee_panel:
                 return
         line_record = [lines_name, origin, destination, stations]
         self.lines_listt.append(line_record)
+        self.all_info
         print(f"line '{lines_name}' added successfully")
 
     def all_info(self):
@@ -108,7 +110,7 @@ class empoloyee_panel:
                     self.all_info()
                     print("destination updated")
                 elif choice == "4":
-                    new_stations = input("enter stations separated by commas: ").strip().split(",")
+                    new_stations =[ s.strip() for s in  input("enter stations separated by commas: ").split(",") if s.strip()]
                     if not new_stations:
                         print("stations cannot be empty")
                         continue
@@ -144,7 +146,7 @@ while True:
     destination = input("enter destination: ").strip()
     if destination.lower() == "back":
         break
-    stations = input("enter stations separated by cammas: ").split(",")
+    stations = input("enter stations separated by cammas: ").strip().split(",")
     panel.add_line(lines_name, origin, destination, stations)
     continue_ = input("do you want to add another line? (y/n): ").strip().lower()
     if continue_ not in ("yes","y"):
