@@ -25,8 +25,6 @@ class empoloyee_panel:
         self.lines_dict = {}
 
     def add_line(self, lines_name, origin, destination, stations):
-        if isinstance(lines_name, str):
-            return
         if lines_name == "":
             print("name is empty")
             return
@@ -54,7 +52,7 @@ class empoloyee_panel:
             self.lines_dict[key_] = self.lines_listt[i]
 
     def update_lines_info(self, lines_name=None):
-        
+        while True:
             if not lines_name:
                 lines_name = input("enter line name (or type 'back' to return): ").strip()
                 if lines_name.lower() == "back":
@@ -68,6 +66,7 @@ class empoloyee_panel:
             if not record:
                 print("Line name not found.")
                 lines_name = None
+                continue
             while True:
                 print(f"1) name: {record[0]}")
                 print(f"2) origin: {record[1]}")
@@ -148,7 +147,7 @@ while True:
     stations = input("enter stations separated by cammas: ").split(",")
     panel.add_line(lines_name, origin, destination, stations)
     continue_ = input("do you want to add another line? (y/n): ").strip().lower()
-    if continue_ not in ("yes"):
+    if continue_ not in ("yes","y"):
         break
 while True:
     lines_name=input("enter line name :").strip()
@@ -156,7 +155,7 @@ while True:
         break
     panel.update_lines_info(lines_name)
     continue_=input("do want to update another line ? (y/yes): ").strip().lower()
-    if continue_ not in("yes"):
+    if continue_ not in("yes","y"):
         break
 class normal_user:
     def __init__(self):
