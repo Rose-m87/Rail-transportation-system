@@ -47,7 +47,7 @@ def register():
             print('Username or email already exsist!')
             return
         
-    user.append({'name': name, 'email': email, 'username': username, 'password': password})  
+    user.append({'name': name, 'email': email, 'username': username, 'password': password, 'wallet': 0})  
     print('Registration successful!')  
 
 def login():
@@ -73,4 +73,5 @@ while True:
     elif choice =='3':
         break
     else: 
+
         print('Invalid choice')
