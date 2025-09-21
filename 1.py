@@ -198,6 +198,8 @@ class Shopping:
                 file.write(f"  Quality: {info['quality']}\n")
                 file.write(f"  Remaining capacity: {info['capacity']}\n")
                 file.write(f"  Ticket price: {info['ticket_price']} $\n")
+                if  info['capacity']:
+                    print("sold out")
                 file.write("-" * 30 + "\n")
         print("\nTrain information saved to 'trains.txt'.")    
     def wallet(self):
