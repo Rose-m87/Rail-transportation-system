@@ -168,11 +168,56 @@ class normal_user:
         pass
     def log_out(self):
         pass
-class shopping:
-    def __init__(self):
-        pass
+class Shopping:
+    def __init__(self, trains_dict):
+        self.trains_dict = trains_dict  
+
+    def show_trains(self):
+        if not self.trains_dict:
+            print("No trains available.")
+            return
+
+        print("Available trains:\n")
+        for train_name, info in self.trains_dict.items():
+            print(f"Train name: {train_name}")
+            print(f"  Line: {info['line']}")
+            print(f"  Speed: {info['speed']}")
+            print(f"  Stop time: {info['stop_time']}")
+            print(f"  Quality: {info['quality']}")
+            print(f"  Remaining capacity: {info['capacity']}")
+            print(f"  Ticket price: {info['ticket_price']} $")
+            print("-" * 30)
+
+        with open("trains.txt", "w", encoding="utf-8") as file:
+            file.write("Available trains:\n\n")
+            for train_name, info in self.trains_dict.items():
+                file.write(f"Train name: {train_name}\n")
+                file.write(f"  Line: {info['line']}\n")
+                file.write(f"  Speed: {info['speed']}\n")
+                file.write(f"  Stop time: {info['stop_time']}\n")
+                file.write(f"  Quality: {info['quality']}\n")
+                file.write(f"  Remaining capacity: {info['capacity']}\n")
+                file.write(f"  Ticket price: {info['ticket_price']} $\n")
+                file.write("-" * 30 + "\n")
+        print("\nTrain information saved to 'trains.txt'.")    
     def wallet(self):
         pass
     def edit_info(self):
         pass
+shop = Shopping(panel.trains_dict)
+
+while True:
+    print("\n--- User Panel ---")
+    print("1. Show trains")
+    print("2. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        shop.show_trains()  
+    elif choice == "2":
+        print("Exiting...")
+        break
+    else:
+        print("Invalid choice, try again.")
 
