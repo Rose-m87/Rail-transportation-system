@@ -202,6 +202,30 @@ class Shopping:
                     print("sold out")
                 file.write("-" * 30 + "\n")
         print("\nTrain information saved to 'trains.txt'.")    
+    def buy_ticket(self):
+        train_name = input("Enter train name: ")
+        if train_name not in self.trains_dict:
+            print("Train not found.")
+            return
+        train = self.trains_dict[train_name]
+        if train["capacity"] <= 0:
+            print("Sold out.")
+            return
+        qty = int(input("Enter ticket quantity: "))
+        if qty <= 0:
+            print("Invalid quantity.")
+            return
+        if qty > train["capacity"]:
+            print("Not enough capacity.")
+            return
+        train["capacity"] -= qty
+        total_price = qty * train["ticket_price"]
+        print(f"Successfully bought {qty} tickets for {train_name}. Total: {total_price}$")
+        if train["capacity"] == 0:
+            print("Now sold out.")
+
+
+
     def wallet(self):
         pass
     def edit_info(self):
@@ -211,15 +235,15 @@ shop = Shopping(panel.trains_dict)
 while True:
     print("\n--- User Panel ---")
     print("1. Show trains")
-    print("2. Exit")
-
+    print("2. Buy ticket")
+    print("3. Exit")
     choice = input("Enter your choice: ")
-
     if choice == "1":
-        shop.show_trains()  
+        shop.show_trains()
     elif choice == "2":
+        shop.buy_ticket()
+    elif choice == "3":
         print("Exiting...")
         break
     else:
         print("Invalid choice, try again.")
-
