@@ -4,8 +4,8 @@ A collaborative project focused on railway transportation systems
 This project is a Railway Transportation Management System designed to manage railway lines, stations, users, and ticket reservations.  
 It provides a simple way to organize and simulate how a railway transport system works.
 ## Team Members
-- Rose :add line ,update line ,log out ,show train(shopping class)
-- Farzad :train employee panel,show lines and trains list,wallet 
+- Rose :add line ,update line ,log out ,show train(shopping class),by tikcet
+- Farzad :train employee panel,show lines and trains list,wallet,merge 
 - Behesht:Add train,Show train(rail way class),Update train,Export ticket 
 - Sepehr : start menu ,admin pamel ,user panel  
 ## Features
