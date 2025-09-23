@@ -122,7 +122,3 @@ def admin_panel():
         else:
             print("Invalid choice!")
 
-while True:
-    admin_login()
-    if input("Press 'back' to return to Start Menu or any key to continue: ").lower() == "back":
-        break
