@@ -6,7 +6,7 @@ It provides a simple way to organize and simulate how a railway transport system
 ## Team Members
 - Rose :add line ,update line ,log out ,show train(shopping class)
 - Farzad :train employee panel,show lines and trains list,wallet 
-- Behesht :Add train ,Show train(rail way class ,Update train ,Export ticket 
+- Behesht:Add train,Show train(rail way class),Update train,Export ticket 
 - Sepehr : start menu ,admin pamel ,user panel  
 ## Features
 - Add and manage railway lines  
