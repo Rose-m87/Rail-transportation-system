@@ -5,7 +5,7 @@ This project is a Railway Transportation Management System designed to manage ra
 It provides a simple way to organize and simulate how a railway transport system works.
 ## Team Members
 - Rose :add line ,update line ,show train(shopping class),by tikcet
-- Farzad :train employee panel,show lines and trains list,wallet,merge
+- Farzad :train employee panel,show lines and trains list,wallet,merge,Module layout
 - Behesht:Add train,Show train(rail way class),Update train,Export ticket 
 - Sepehr : start menu ,admin pamel ,user panel  
 ## Features
