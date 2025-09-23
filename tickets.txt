@@ -1,0 +1,6 @@
+User: fae bought 5 tickets for WE, Total=50.0$
+User: fae bought 9 tickets for WE, Total=90.0$
+User: sep2 bought 3 tickets for Met, Total=3000.0$
+User: ff bought 5 tickets for DD, Total=250.0$
+User: ff bought 20 tickets for EE, Total=440.0$
+User: ff bought 30 tickets for WEWE, Total=660.0$

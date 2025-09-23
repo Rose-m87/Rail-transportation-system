@@ -1,0 +1,2 @@
+EE: Line=1, Price=22.0$, Remaining=33
+WEWE: Line=1, Price=22.0$, Remaining=34
